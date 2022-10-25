@@ -19,7 +19,8 @@ namespace ConsoleAppDemoSQL
 
         public void Update(int id, string name)
         {
-            // This query has potential for SQL Injection
+            //This query has potential for SQL Injection
+
             //var query = $"UPDATE PersonInfo SET first_name = '{name}' WHERE id = (@id)";
             //var param = new SqlParameter("@id", id);
             //_personContext.Database.ExecuteSqlRaw(query, param);
@@ -27,6 +28,7 @@ namespace ConsoleAppDemoSQL
             // here is the way to remove string interpolatio to prevent SQL Injection
 
             var query = "UPDATE PersonInfo SET first_name = (@name) WHERE id = (@id)";
+
             var param = new[] {
                 new SqlParameter("@id", id),
                 new SqlParameter("name", name)

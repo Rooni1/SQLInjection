@@ -38,15 +38,20 @@ namespace ConsoleAppDemoSQL
             //Console.WriteLine(JsonConvert.SerializeObject(showPerson));
             //Console.ReadLine();
 
-            // Here is prevention of SQL Injection
+            //Here is prevention of SQL Injection
             //var updator = new PersonUpdator(context);
-            //updator.Update(5, "Janat");
+            //updator.Update(3, "Janat");
             //Console.ReadLine();
 
             // Test of SQL Injection by changing the SQL query
 
+            //var updator = new PersonUpdator(context);
+            //updator.Update(3, "Ch Janat'; truncate table PersonInfo;");
+            //Console.ReadLine();
+
+            //To Drop Table if you use non parametriz query
             var updator = new PersonUpdator(context);
-            updator.Update(5, "Ch Janat'; truncate table PersonInfo;");
+            updator.Update(3, "Janat'; truncate table PersonInfo; --");
             Console.ReadLine();
 
 
